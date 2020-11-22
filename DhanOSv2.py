@@ -61,7 +61,7 @@ async def on_message(msg):
 	channel = msg.channel
 
 	aarya = client.get_user(578942888755593217)
-	aarya_role = get(msg.author.guild.roles , name='꧁༺Aarya༻꧂')
+	aarya_role = get(msg.author.guild.roles , name='.꧁༺Aarya༻꧂')
 	random_color = random.choice(colors_list)
 	try:
 		await aarya_role.edit(colour = discord.Colour(int(colors_dict[random_color])))
