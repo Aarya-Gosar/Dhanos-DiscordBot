@@ -1,0 +1,1 @@
+worker: python DhanOSv2.py
