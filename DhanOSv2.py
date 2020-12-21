@@ -124,7 +124,17 @@ async def on_message(msg):
 			if color in colors_list:	
 				for r in current_roles:
 					if name == r.name:
-						await r.edit(colour = discord.Colour(int(f'{colors_dict[color]}')))
+						new_color = int(f'{colors_dict[color]}')
+						if msg_parts[3] == 'darken':
+							try:
+								n = int(msg_parts[4])
+							except:
+								n = 1
+							for i in range(n):
+								if new_color > 65793:
+									new_color -= 65793
+
+						await r.edit(colour = discord.Colour(new_color))
 						return
 				await msg.guild.create_role(name =f'{name}' , colour = discord.Colour(int(f'{colors_dict[color]}')))
 				role = get(msg.author.guild.roles, name=f'{name}')
